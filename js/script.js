@@ -35,6 +35,15 @@ function entrarAFiesta() {
         nombre
     );
 
+    const welcomeTitle =
+    document.querySelector(
+        ".welcome h1"
+    );
+
+    welcomeTitle.innerHTML = `
+        💖 ¡Hola ${capitalizar(nombre)}! 💖
+    `;
+
     const quizSection =
         document.querySelector(
             ".quiz-section"
@@ -47,14 +56,6 @@ function entrarAFiesta() {
 
 }
 
-const welcomeTitle =
-    document.querySelector(
-        ".welcome h1"
-    );
-
-welcomeTitle.innerHTML = `
-    💖 ¡Hola ${capitalizar(nombre)}! 💖
-`;
 
 /* ==========================================
    QUIZ COLLAPSIBLE
@@ -65,9 +66,8 @@ const quizContent = document.getElementById("quizContent");
 
 quizToggle.addEventListener("click", () => {
 
-    quizToggle.classList.toggle("active");
-
     quizContent.classList.toggle("open");
+    quizToggle.classList.toggle("active");
 
 });
 
@@ -231,17 +231,6 @@ prevButton.addEventListener(
 );
 
 function guardarResultadoQuiz(personaje) {
-
-    /*
-     * Guardar siempre el último
-     * personaje obtenido.
-     */
-
-    localStorage.setItem(
-        "ultimoPersonaje",
-        personaje
-    );
-
 
     const nombre =
         localStorage.getItem(
@@ -714,12 +703,8 @@ function abrirRegalo(numero) {
                 "gift-message"
             );
 
-        message.innerHTML = `
-            💕 Primero escribe tu nombre
-            en la sección de la cartita.
-            <br><br>
-            Así podremos guardar tu regalito. 🎀
-        `;
+        message.innerHTML =
+        giftMessages[numero];
 
         return;
 
@@ -1158,8 +1143,10 @@ function aplicarColorSobre(nombre) {
 
 function prepararCarta() {
 
-    const input =
-        document.getElementById("guestName");
+    const nombre =
+    localStorage.getItem(
+        "sanrioGuest"
+    );
 
     const letterForm =
         document.querySelector(".letter-form");
@@ -1174,13 +1161,10 @@ function prepararCarta() {
         document.getElementById("letterResult");
 
 
-    const nombre =
-        input.value.trim().toLowerCase();
-
 
     if (!nombre) {
 
-        input.focus();
+        alert("🌸 Primero elige tu nombre para preparar tu cartita 💕");
         return;
 
     }
@@ -1212,38 +1196,9 @@ function prepararCarta() {
 
     currentGuest = nombre;
 
-    localStorage.setItem(
-        "sanrioGuest",
-        nombre
-    );
-
-    const ultimoPersonaje =
-    localStorage.getItem(
-        "ultimoPersonaje"
-    );
-
-if (ultimoPersonaje) {
-
-    let resultados =
-        JSON.parse(
-            localStorage.getItem(
-                "sanrioQuizResults"
-            )
-        ) || {};
-
-    resultados[nombre] =
-        ultimoPersonaje;
-
-    localStorage.setItem(
-        "sanrioQuizResults",
-        JSON.stringify(resultados)
-    );
-
-}
-
 
     envelopeName.textContent =
-        `Para ${capitalizar(nombre)} 💕`;
+        `Para ${capitalizar(nombre)} ✨`;
 
 
     /*
