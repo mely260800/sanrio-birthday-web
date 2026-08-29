@@ -172,6 +172,38 @@ prevButton.addEventListener(
     }
 );
 
+function guardarResultadoQuiz(personaje) {
+
+    const nombre =
+        localStorage.getItem("sanrioGuest");
+
+
+    if (!nombre) {
+
+        return;
+
+    }
+
+
+    let resultados =
+        JSON.parse(
+            localStorage.getItem(
+                "sanrioQuizResults"
+            )
+        ) || {};
+
+
+    resultados[nombre] =
+        personaje;
+
+
+    localStorage.setItem(
+        "sanrioQuizResults",
+        JSON.stringify(resultados)
+    );
+
+}
+
 
 /* ==========================================
    MOSTRAR RESULTADO
@@ -335,6 +367,7 @@ function mostrarResultado() {
 
     };
 
+    guardarResultadoQuiz(personaje);
 
     const resultado = document.getElementById("resultado");
 
@@ -533,6 +566,22 @@ function reiniciarQuiz() {
    REGALITOS
 ========================================== */
 
+/* ==========================================
+   INVITADOS
+========================================== */
+
+const invitados = [
+    "denisse",
+    "luis",
+    "diego",
+    "erick",
+    "jairo",
+    "maría",
+    "natalia",
+    "ximena",
+    "alessandra"
+];
+
 const giftMessages = {
 
     1:
@@ -551,30 +600,60 @@ const giftMessages = {
 
 function abrirRegalo(numero) {
 
-    const boxes =
-        document.querySelectorAll(".gift-box");
+    /*
+     * Obtener el nombre del invitado
+     */
 
-    const box =
-        boxes[numero - 1];
-
-    const message =
-        document.getElementById("gift-message");
+    const nombre =
+        localStorage.getItem("sanrioGuest");
 
 
     /*
-     * Revisar si ya eligió un regalo
+     * Si todavía no ha ingresado su nombre,
+     * no permitir escoger regalo.
      */
 
-    const regaloElegido =
-        localStorage.getItem("sanrioGift");
+    if (!nombre) {
+
+        const message =
+            document.getElementById(
+                "gift-message"
+            );
+
+        message.innerHTML = `
+            💕 Primero escribe tu nombre
+            en la sección de la cartita.
+            <br><br>
+            Así podremos guardar tu regalito. 🎀
+        `;
+
+        return;
+
+    }
 
 
     /*
-     * Si ya existe uno guardado,
-     * no permitir elegir otro
+     * Recuperar regalos elegidos
      */
 
-    if (regaloElegido) {
+    let regalosElegidos =
+        JSON.parse(
+            localStorage.getItem(
+                "sanrioGifts"
+            )
+        ) || {};
+
+
+    /*
+     * Comprobar si ESTE invitado
+     * ya eligió un regalo.
+     */
+
+    if (regalosElegidos[nombre]) {
+
+        mostrarRegaloYaElegido(
+            regalosElegidos[nombre]
+        );
 
         return;
 
@@ -585,21 +664,44 @@ function abrirRegalo(numero) {
      * Guardar elección
      */
 
+    regalosElegidos[nombre] = numero;
+
+
     localStorage.setItem(
-        "sanrioGift",
-        numero
+        "sanrioGifts",
+        JSON.stringify(regalosElegidos)
     );
 
 
     /*
-     * Marcar caja seleccionada
+     * Obtener cajas
+     */
+
+    const boxes =
+        document.querySelectorAll(
+            ".gift-box"
+        );
+
+
+    const box =
+        boxes[numero - 1];
+
+
+    const message =
+        document.getElementById(
+            "gift-message"
+        );
+
+
+    /*
+     * Abrir regalo elegido
      */
 
     box.classList.add("opened");
 
 
     /*
-     * Bloquear las otras cajas
+     * Bloquear las demás cajas
      */
 
     boxes.forEach((gift, index) => {
@@ -619,8 +721,19 @@ function abrirRegalo(numero) {
 
     setTimeout(() => {
 
-        message.innerHTML =
-            giftMessages[numero];
+        message.innerHTML = `
+
+            ✨ ${giftMessages[numero]}
+
+            <br><br>
+
+            <small>
+                🎀 Este es tu único regalito.
+                ¡Disfrútalo mucho!
+            </small>
+
+        `;
+
 
         message.scrollIntoView({
             behavior: "smooth",
@@ -631,7 +744,7 @@ function abrirRegalo(numero) {
 
 
     /*
-     * Efectos
+     * Efectos especiales
      */
 
     lanzarEfectos();
@@ -640,9 +753,46 @@ function abrirRegalo(numero) {
 
 function restaurarRegalo() {
 
-    const regaloElegido =
-        localStorage.getItem("sanrioGift");
+    const nombre =
+        localStorage.getItem("sanrioGuest");
 
+
+    /*
+     * Si todavía no sabemos quién es,
+     * no hacemos nada.
+     */
+
+    if (!nombre) {
+
+        return;
+
+    }
+
+
+    /*
+     * Recuperar elecciones
+     */
+
+    const regalosElegidos =
+        JSON.parse(
+            localStorage.getItem(
+                "sanrioGifts"
+            )
+        ) || {};
+
+
+    /*
+     * Buscar regalo de este invitado
+     */
+
+    const regaloElegido =
+        regalosElegidos[nombre];
+
+
+    /*
+     * Si todavía no eligió,
+     * las cajas siguen disponibles.
+     */
 
     if (!regaloElegido) {
 
@@ -651,16 +801,23 @@ function restaurarRegalo() {
     }
 
 
+    /*
+     * Obtener cajas
+     */
+
     const boxes =
-        document.querySelectorAll(".gift-box");
+        document.querySelectorAll(
+            ".gift-box"
+        );
 
-    const numero =
-        parseInt(regaloElegido);
 
+    /*
+     * Restaurar estado
+     */
 
     boxes.forEach((gift, index) => {
 
-        if (index === numero - 1) {
+        if (index === regaloElegido - 1) {
 
             gift.classList.add("opened");
 
@@ -673,21 +830,89 @@ function restaurarRegalo() {
     });
 
 
+    /*
+     * Mostrar mensaje
+     */
+
     const message =
-        document.getElementById("gift-message");
+        document.getElementById(
+            "gift-message"
+        );
 
 
     message.innerHTML = `
 
-        🎀 Ya elegiste tu regalito 💕
+        🔒💕 Ya elegiste tu regalito.
 
         <br><br>
 
-        ¡Tu sorpresa te está esperando!
+        Tu sorpresa es:
 
-        ✨
+        <strong>
+            ${obtenerNombreRegalo(
+                regaloElegido
+            )}
+        </strong>
+
+        <br><br>
+
+        ✨ ¡Disfrútalo mucho! ✨
 
     `;
+
+}
+
+function mostrarRegaloYaElegido(numero) {
+
+    const message =
+        document.getElementById(
+            "gift-message"
+        );
+
+
+    message.innerHTML = `
+
+        🔒💕 Ya elegiste tu regalito.
+
+        <br><br>
+
+        Escogiste:
+
+        <strong>
+            ${obtenerNombreRegalo(numero)}
+        </strong>
+
+        <br><br>
+
+        ✨ ¡Tu sorpresa ya está reservada para ti! ✨
+
+    `;
+
+
+    message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+function obtenerNombreRegalo(numero) {
+
+    const nombres = {
+
+        1:
+            "🍬 El dulce adicional",
+
+        2:
+            "🎤 Elegir la próxima canción",
+
+        3:
+            "💕 El dúo sorpresa"
+
+    };
+
+
+    return nombres[numero];
 
 }
 
@@ -729,6 +954,109 @@ const guestMessages = {
 
 let currentGuest = null;
 
+const coloresSobres = {
+
+    kitty: {
+        principal: "#ff6b81",
+        secundario: "#ff8fa3",
+        texto: "#d6334c"
+    },
+
+    mymelody: {
+        principal: "#f783b8",
+        secundario: "#ffafd2",
+        texto: "#d94f91"
+    },
+
+    kuromi: {
+        principal: "#9b6acb",
+        secundario: "#b98bdd",
+        texto: "#70409c"
+    },
+
+    piano: {
+        principal: "#f6b6ce",
+        secundario: "#f9cedf",
+        texto: "#d889aa"
+    },
+
+    cinnamoroll: {
+        principal: "#8ed8f2",
+        secundario: "#b9eaf8",
+        texto: "#4daacb"
+    },
+
+    pompompurin: {
+        principal: "#f6c94c",
+        secundario: "#ffda72",
+        texto: "#c39420"
+    },
+
+    pochacco: {
+        principal: "#e85b65",
+        secundario: "#f07d85",
+        texto: "#bd3d48"
+    },
+
+    chococat: {
+        principal: "#9a7256",
+        secundario: "#b88e70",
+        texto: "#6f4d38"
+    }
+
+};
+
+function aplicarColorSobre(nombre) {
+
+    const envelope =
+        document.getElementById(
+            "envelopeContainer"
+        );
+
+
+    /*
+     * Intentar obtener el personaje
+     * que obtuvo el invitado.
+     */
+
+    const resultados =
+        JSON.parse(
+            localStorage.getItem(
+                "sanrioQuizResults"
+            )
+        ) || {};
+
+
+    const personaje =
+        resultados[nombre];
+
+
+    /*
+     * Si todavía no hay personaje,
+     * usar rosa como color predeterminado.
+     */
+
+    const colores =
+        coloresSobres[personaje] ||
+        coloresSobres.mymelody;
+
+
+    envelope.style.setProperty(
+        "--envelope-main",
+        colores.principal
+    );
+
+    envelope.style.setProperty(
+        "--envelope-secondary",
+        colores.secundario
+    );
+
+    envelope.style.setProperty(
+        "--envelope-text",
+        colores.texto
+    );
+
+}
 
 /* ==========================================
    PREPARAR CARTA
@@ -739,20 +1067,17 @@ function prepararCarta() {
     const input =
         document.getElementById("guestName");
 
+    const letterForm =
+        document.querySelector(".letter-form");
+
     const envelope =
-        document.getElementById(
-            "envelopeContainer"
-        );
+        document.getElementById("envelopeContainer");
 
     const envelopeName =
-        document.getElementById(
-            "envelopeName"
-        );
+        document.getElementById("envelopeName");
 
     const result =
-        document.getElementById(
-            "letterResult"
-        );
+        document.getElementById("letterResult");
 
 
     const nombre =
@@ -762,7 +1087,6 @@ function prepararCarta() {
     if (!nombre) {
 
         input.focus();
-
         return;
 
     }
@@ -794,26 +1118,41 @@ function prepararCarta() {
 
     currentGuest = nombre;
 
+    localStorage.setItem(
+        "sanrioGuest",
+        nombre
+    );
 
-    /* Mostrar nombre en el sobre */
 
     envelopeName.textContent =
         `Para ${capitalizar(nombre)} 💕`;
 
 
-    /* Mostrar sobre */
+    /*
+     * Ocultar formulario
+     */
+
+    letterForm.classList.add("hidden");
+
+
+    /*
+     * Mostrar sobre
+     */
 
     envelope.classList.remove("opened");
 
     envelope.classList.add("show");
 
 
-    /* Limpiar mensaje anterior */
-
     result.innerHTML = "";
 
 
-    /* Efectos */
+    /*
+     * Aplicar color personalizado
+     */
+
+    aplicarColorSobre(nombre);
+
 
     lanzarEfectos();
 
