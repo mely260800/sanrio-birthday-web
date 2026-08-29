@@ -740,10 +740,9 @@ button:hover{
 .result-card p {
 
     color: #777;
-
     line-height: 1.7;
-
     font-size: 16px;
+    font-family: 'Momo Trust Display', sans-serif;
 
 }
 

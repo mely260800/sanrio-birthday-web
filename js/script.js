@@ -1277,7 +1277,7 @@ function abrirCarta() {
                 </div>
 
                 <h3>
-                    Para ${capitalizar(currentGuest)} 💗
+                    Para ${capitalizar(currentGuest)} ☀️
                 </h3>
 
                 <p>
