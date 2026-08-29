@@ -1,7 +1,7 @@
 body{
     margin:0;
     font-family:
-        "Segoe UI",
+        "Gadugi",
         sans-serif;
     background:linear-gradient(
         135deg,
@@ -517,7 +517,6 @@ button:hover{
 .quiz-header {
 
     text-align: center;
-
     padding: 25px 15px 15px;
 
 }
@@ -526,7 +525,6 @@ button:hover{
 .quiz-header h2 {
 
     color: #ff69b4;
-
     margin-bottom: 10px;
 
 }
@@ -535,8 +533,8 @@ button:hover{
 .quiz-header p {
 
     color: #888;
-
     line-height: 1.6;
+    font-family: 'Momo Trust Display', sans-serif;
 
 }
 
@@ -1175,8 +1173,8 @@ button:hover{
 .section-description {
 
     color: #999;
-
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+    font-family: 'Momo Trust Display', sans-serif;
 
 }
 

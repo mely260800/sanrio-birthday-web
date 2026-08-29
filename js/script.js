@@ -1002,7 +1002,7 @@ function obtenerNombreRegalo(numero) {
 const guestMessages = {
 
     "denisse":
-        "Denisse, gracias por acompañarme en este día tan especial. Espero que hoy cantes, rías y disfrutes muchísimo. 💕",
+        "Denisse, gracias por acompañarme en este día tan especial. Divirtamonos al máximo. Espero que hoy cantes, rías y disfrutes muchísimo. 🎤✨",
 
     "luis":
         "Luis, gracias por ser parte de esta celebración. ¡Ahora sí, a demostrar ese talento en el karaoke! 🎤✨",
