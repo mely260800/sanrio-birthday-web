@@ -1,0 +1,1959 @@
+body{
+    margin:0;
+    font-family:'Comic Sans MS', sans-serif;
+    background:linear-gradient(
+        135deg,
+        #ffd6e7,
+        #d6f4ff,
+        #e8d8ff
+    );
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+header{
+    text-align:center;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#ff69b4;
+}
+
+.quiz{
+    margin-top:30px;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.question{
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin:10px 0;
+}
+
+button{
+    background:#ff9ecf;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#resultado{
+    margin-top:30px;
+    text-align:center;
+}
+
+#resultado img{
+    width:250px;
+    border-radius:20px;
+}
+
+
+/* ========================================
+   OPCIONES DEL QUIZ
+======================================== */
+
+.heart-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 12px 0;
+    padding: 12px 16px;
+
+    background: #fff8fc;
+    border: 2px solid transparent;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Ocultamos el radio original */
+
+.heart-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Corazón */
+
+.heart {
+    font-size: 22px;
+    color: #ffd0e2;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Cuando pasamos el mouse */
+
+.heart-option:hover {
+    background: #fff0f7;
+    transform: translateY(-2px);
+}
+
+
+/* Cuando el radio está seleccionado */
+
+.heart-option input:checked + .heart {
+    color: #ff6fae;
+    transform: scale(1.25);
+}
+
+
+/* Toda la opción seleccionada */
+
+.heart-option:has(input:checked) {
+    background: #ffe5f1;
+    border-color: #ffafd0;
+
+    box-shadow: 0 5px 15px rgba(255, 111, 174, 0.15);
+}
+
+
+/* Animación del corazón */
+
+.heart-option input:checked + .heart {
+    animation: heartPop 0.35s ease;
+}
+
+
+@keyframes heartPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.45);
+    }
+
+    100% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* ========================================
+   BOTÓN
+======================================== */
+
+.quiz-button {
+
+    display: block;
+
+    margin: 35px auto 10px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff9fc8,
+        #ffb7d9
+    );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 15px rgba(255, 105, 180, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.quiz-button:hover {
+
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+
+}
+
+
+.quiz-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* ==========================================
+   BANNER DE SANRIO
+========================================== */
+
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px 25px 0 0;
+}
+
+.sanrio-banner {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.sanrio-banner:hover {
+    transform: scale(1.03);
+}
+
+
+/* ==========================================
+   BIENVENIDA
+========================================== */
+
+.welcome {
+    background: white;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 30px rgba(255, 105, 180, 0.15);
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.welcome-content {
+    padding: 30px;
+}
+
+.welcome-decoration {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.welcome h1 {
+    color: #ff69b4;
+    margin: 10px 0 20px;
+}
+
+.welcome-message {
+    color: #777;
+    font-size: 17px;
+    line-height: 1.7;
+
+    max-width: 650px;
+    margin: auto;
+}
+
+.welcome-hearts {
+    margin-top: 20px;
+
+    color: #ff91bd;
+
+    font-size: 25px;
+
+    letter-spacing: 8px;
+}
+
+
+/* ==========================================
+   SECCIÓN DEL QUIZ
+========================================== */
+
+.quiz-section {
+    margin-top: 25px;
+}
+
+
+/* ==========================================
+   BOTÓN COLLAPSIBLE
+========================================== */
+
+.quiz-toggle {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #fff,
+        #fff3f8
+    );
+
+    box-shadow:
+        0 8px 25px rgba(255, 105, 180, 0.15);
+
+    cursor: pointer;
+
+    color: #ff69a4;
+
+    text-align: left;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.quiz-toggle:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(255, 105, 180, 0.22);
+
+}
+
+
+.quiz-toggle-icon {
+
+    font-size: 30px;
+
+    min-width: 40px;
+
+}
+
+
+.quiz-toggle-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+}
+
+
+.quiz-toggle-text strong {
+
+    font-size: 18px;
+
+}
+
+
+.quiz-toggle-text small {
+
+    margin-top: 4px;
+
+    color: #999;
+
+    font-size: 13px;
+
+}
+
+
+.quiz-arrow {
+
+    font-size: 18px;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+/* ==========================================
+   CONTENIDO DEL QUIZ
+========================================== */
+
+.quiz-content {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition:
+        max-height 0.8s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+}
+
+
+/* Cuando está abierto */
+
+.quiz-content.open {
+
+    max-height: 10000px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    margin-top: 20px;
+
+}
+
+
+.quiz-toggle.active .quiz-arrow {
+
+    transform: rotate(180deg);
+
+}
+
+
+/* ==========================================
+   CABECERA DEL QUIZ
+========================================== */
+
+.quiz-header {
+
+    text-align: center;
+
+    padding: 25px 15px 15px;
+
+}
+
+
+.quiz-header h2 {
+
+    color: #ff69b4;
+
+    margin-bottom: 10px;
+
+}
+
+
+.quiz-header p {
+
+    color: #888;
+
+    line-height: 1.6;
+
+}
+
+
+.quiz-sparkles {
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ==========================================
+   EFECTOS MÁGICOS
+========================================== */
+
+#magic-effects {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+}
+
+
+/* Partículas */
+
+.magic-particle {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    animation:
+        magicFloat 2.5s ease-out forwards;
+
+}
+
+
+@keyframes magicFloat {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.2)
+            rotate(0deg);
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-250px)
+            scale(1.5)
+            rotate(180deg);
+
+    }
+
+}
+
+
+/* Flash */
+
+.magic-flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    animation: magicFlash 0.8s ease-out forwards;
+
+}
+
+
+@keyframes magicFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+/* ==========================================
+   RESULTADO
+========================================== */
+
+.result-card {
+
+    margin-top: 35px;
+
+    padding: 30px 20px;
+
+    background: linear-gradient(
+        145deg,
+        #fff,
+        #fff4fa
+    );
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    border: 3px solid #ffd1e4;
+
+    box-shadow:
+        0 15px 40px rgba(255, 105, 180, 0.2);
+
+    animation:
+        resultAppear 1s ease forwards;
+
+}
+
+
+@keyframes resultAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7)
+            translateY(30px);
+
+    }
+
+    70% {
+
+        transform:
+            scale(1.05);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+.result-card h2 {
+
+    color: #ff69b4;
+
+    font-size: 26px;
+
+}
+
+
+.result-card img {
+
+    width: 230px;
+
+    max-width: 80%;
+
+    margin: 15px auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 10px 15px
+            rgba(255, 105, 180, 0.2)
+        );
+
+}
+
+
+.result-card p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+/* ==========================================
+   NOMBRE DEL PERSONAJE
+========================================== */
+
+.character-name {
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin: 10px 0 15px;
+
+    text-shadow:
+        2px 3px 0 rgba(255, 255, 255, 0.9);
+
+    animation:
+        characterNameAppear 0.8s ease forwards;
+
+}
+
+
+/* ==========================================
+   COLORES DE LOS PERSONAJES
+========================================== */
+
+
+/* ❤️ Hello Kitty */
+
+.character-name.kitty {
+
+    color: #e63946;
+
+}
+
+
+/* 💗 My Melody */
+
+.character-name.mymelody {
+
+    color: #e83e8c;
+
+}
+
+
+/* 💜 Kuromi */
+
+.character-name.kuromi {
+
+    color: #8e44ad;
+
+}
+
+
+/* 🌸 My Sweet Piano */
+
+.character-name.piano {
+
+    color: #f5a6c8;
+
+}
+
+
+/* ☁️ Cinnamoroll */
+
+.character-name.cinnamoroll {
+
+    color: #6ec6e8;
+
+}
+
+
+/* 💛 Pompompurin */
+
+.character-name.pompompurin {
+
+    color: #f2c94c;
+
+}
+
+
+/* 🤎 Chococat */
+
+.character-name.chococat {
+
+    color: #795548;
+
+}
+
+
+/* ❤️ Pochacco */
+
+.character-name.pochacco {
+
+    color: #d94b5b;
+
+}
+
+
+/* ==========================================
+   ANIMACIÓN DEL NOMBRE
+========================================== */
+
+@keyframes characterNameAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            translateY(15px)
+            rotate(-3deg);
+
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.1)
+            translateY(-3px)
+            rotate(2deg);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0)
+            rotate(0);
+
+    }
+
+}
+
+.retry-button {
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border: 2px solid #ffb6d5;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #ff69a4;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.retry-button:hover {
+
+    background: #fff0f7;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 15px rgba(255, 105, 180, 0.2);
+
+}
+
+/* ==========================================
+   SLIDER DEL QUIZ
+========================================== */
+
+.question {
+    display: none;
+
+    animation: questionAppear 0.45s ease;
+}
+
+.question.active {
+    display: block;
+}
+
+
+@keyframes questionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ==========================================
+   NAVEGACIÓN
+========================================== */
+
+.quiz-navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.nav-button {
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 11px 20px;
+
+    background: #fff0f7;
+
+    color: #ff69a4;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.nav-button:hover {
+
+    background: #ffddec;
+
+    transform: translateY(-2px);
+
+}
+
+
+.nav-button:disabled {
+
+    opacity: 0.35;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+#questionCounter {
+
+    color: #ff69a4;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================
+   BARRA DE PROGRESO
+========================================== */
+
+.progress-container {
+
+    width: 100%;
+
+    height: 10px;
+
+    background: #ffe6f0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 18px 0 25px;
+
+}
+
+
+.progress-bar {
+
+    width: 12.5%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #ff9fc5,
+        #ff69a4
+    );
+
+    transition: width 0.4s ease;
+
+}
+
+
+/* ==========================================
+   BOTÓN RESULTADO
+========================================== */
+
+#resultButton {
+
+    display: none;
+
+    margin: 20px auto 0;
+
+}
+
+.shake-question {
+
+    animation: shakeQuestion 0.4s ease;
+
+}
+
+
+@keyframes shakeQuestion {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+}
+
+/* ==========================================
+   REGALITOS
+========================================== */
+
+.gifts-section {
+
+    margin-top: 45px;
+
+    padding: 35px 20px;
+
+    background: rgba(255,255,255,0.75);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(255,105,180,0.12);
+
+}
+
+
+.section-title {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.section-title h2 {
+
+    color: #ff69a4;
+
+    font-family: 'Fredoka', sans-serif;
+
+}
+
+
+.section-title span {
+
+    font-size: 22px;
+
+}
+
+
+.section-description {
+
+    color: #999;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ==========================================
+   CONTENEDOR
+========================================== */
+
+.gift-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 45px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* ==========================================
+   CAJA
+========================================== */
+
+.gift-box {
+
+    width: 115px;
+
+    height: 110px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.gift-box:hover {
+
+    transform: translateY(-8px) scale(1.05);
+
+}
+
+
+/* Movimiento */
+
+.gift-box:not(.opened) {
+
+    animation: giftShake 2.2s infinite;
+
+}
+
+
+@keyframes giftShake {
+
+    0%, 70%, 100% {
+
+        transform: rotate(0);
+
+    }
+
+    74% {
+
+        transform: rotate(-3deg);
+
+    }
+
+    78% {
+
+        transform: rotate(3deg);
+
+    }
+
+    82% {
+
+        transform: rotate(-3deg);
+
+    }
+
+    86% {
+
+        transform: rotate(2deg);
+
+    }
+
+}
+
+
+/* ==========================================
+   CUERPO
+========================================== */
+
+.gift-body {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 10px;
+
+    width: 95px;
+
+    height: 75px;
+
+    border-radius: 8px;
+
+}
+
+
+.gift-body span {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    left: 30px;
+
+    top: 15px;
+
+}
+
+
+/* ==========================================
+   TAPA
+========================================== */
+
+.gift-lid {
+
+    position: absolute;
+
+    z-index: 3;
+
+    top: 20px;
+
+    left: 5px;
+
+    width: 105px;
+
+    height: 25px;
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* ==========================================
+   CINTA
+========================================== */
+
+.gift-ribbon {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 52px;
+
+    top: 20px;
+
+    width: 15px;
+
+    height: 90px;
+
+}
+
+
+/* ==========================================
+   COLORES
+========================================== */
+
+.gift-pink .gift-body,
+.gift-pink .gift-lid {
+
+    background: #ff9fc5;
+
+}
+
+
+.gift-pink .gift-ribbon {
+
+    background: #fff;
+
+}
+
+
+.gift-purple .gift-body,
+.gift-purple .gift-lid {
+
+    background: #b99ae8;
+
+}
+
+
+.gift-purple .gift-ribbon {
+
+    background: #f5dfff;
+
+}
+
+
+.gift-blue .gift-body,
+.gift-blue .gift-lid {
+
+    background: #8fd5ed;
+
+}
+
+
+.gift-blue .gift-ribbon {
+
+    background: #fff;
+
+}
+
+
+/* ==========================================
+   BRILLITOS
+========================================== */
+
+.gift-sparkles {
+
+    position: absolute;
+
+    z-index: 5;
+
+    top: 0;
+
+    right: -5px;
+
+    font-size: 22px;
+
+    animation: sparkle 1.3s infinite;
+
+}
+
+
+@keyframes sparkle {
+
+    0%, 100% {
+
+        opacity: 0.3;
+
+        transform: scale(0.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.3);
+
+    }
+
+}
+
+
+/* ==========================================
+   CAJA ABIERTA
+========================================== */
+
+.gift-box.opened .gift-lid {
+
+    transform:
+        translateY(-45px)
+        rotate(-8deg);
+
+}
+
+
+.gift-box.opened {
+
+    animation: none;
+
+}
+
+
+/* ==========================================
+   MENSAJE
+========================================== */
+
+.gift-message {
+
+    min-height: 30px;
+
+    margin-top: 30px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 19px;
+
+    color: #ff69a4;
+
+}
+
+/* ==========================================
+   CARTA
+========================================== */
+
+.letter-section {
+
+    margin-top: 45px;
+
+    padding: 40px 20px;
+
+    background: linear-gradient(
+        145deg,
+        #fff8fc,
+        #fff
+    );
+
+    border-radius: 30px;
+
+    text-align: center;
+
+}
+
+
+.letter-form {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.letter-form input {
+
+    width: 240px;
+
+    padding: 13px 18px;
+
+    border-radius: 25px;
+
+    border: 2px solid #ffd1e4;
+
+    outline: none;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 15px;
+
+    text-align: center;
+
+}
+
+
+.letter-form input:focus {
+
+    border-color: #ff91bd;
+
+    box-shadow:
+        0 0 12px rgba(
+            255,
+            105,
+            180,
+            0.15
+        );
+
+}
+
+
+.letter-form button {
+
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff91bd;
+
+    color: white;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.letter-form button:hover {
+
+    background: #ff69a4;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==========================================
+   TARJETA DE LA CARTA
+========================================== */
+
+.letter-result {
+
+    margin-top: 30px;
+
+}
+
+
+.letter-card {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    padding: 35px 25px;
+
+    background: #fff;
+
+    border-radius: 25px;
+
+    border: 2px solid #ffd6e7;
+
+    box-shadow:
+        0 12px 30px rgba(
+            255,
+            105,
+            180,
+            0.15
+        );
+
+    animation:
+        letterAppear 0.7s ease;
+
+}
+
+
+@keyframes letterAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.letter-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.letter-card h3 {
+
+    font-family: 'Fredoka', sans-serif;
+
+    color: #ff69a4;
+
+    font-size: 25px;
+
+}
+
+
+.letter-card p {
+
+    color: #777;
+
+    line-height: 1.8;
+
+}
+
+
+.letter-decoration {
+
+    margin-top: 20px;
+
+    font-size: 22px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.birthday-footer {
+
+    margin-top: 50px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+}
+
+
+.birthday-footer h2 {
+
+    color: #ff69a4;
+
+    font-family: 'Fredoka', sans-serif;
+
+}
+
+
+.birthday-footer p {
+
+    color: #999;
+
+}
+
+
+.footer-sparkles {
+
+    font-size: 25px;
+
+}
+
+
+.footer-characters {
+
+    margin: 20px 0;
+
+    font-size: 25px;
+
+    letter-spacing: 8px;
+
+}
+
+
+.footer-date {
+
+    font-family: 'Fredoka', sans-serif;
+
+    color: #ff91bd !important;
+
+}
+
+/* ==========================================
+   SOBRE
+========================================== */
+
+.envelope-container {
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 35px;
+
+}
+
+
+.envelope-container.show {
+
+    display: flex;
+
+    animation:
+        envelopeAppear 0.7s ease;
+
+}
+
+
+@keyframes envelopeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.85);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==========================================
+   SOBRE
+========================================== */
+
+.envelope {
+
+    width: 280px;
+
+    height: 190px;
+
+    position: relative;
+
+    margin: 20px auto 30px;
+
+    perspective: 800px;
+
+}
+
+
+/* Parte trasera */
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #ffb6d5;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 12px 25px
+        rgba(255, 105, 180, 0.2);
+
+}
+
+
+/* Carta interior */
+
+.envelope-letter {
+
+    position: absolute;
+
+    z-index: 2;
+
+    width: 240px;
+
+    height: 150px;
+
+    left: 20px;
+
+    bottom: 15px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: 'Fredoka', sans-serif;
+
+    color: #ff69a4;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+/* Frente del sobre */
+
+.envelope-front {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        140px solid transparent;
+
+    border-right:
+        140px solid transparent;
+
+    border-bottom:
+        100px solid #ff91bd;
+
+}
+
+
+/* Solapa */
+
+.envelope-flap {
+
+    position: absolute;
+
+    z-index: 5;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        140px solid transparent;
+
+    border-right:
+        140px solid transparent;
+
+    border-top:
+        100px solid #ff80b0;
+
+    transform-origin: top;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+/* ==========================================
+   ABRIR
+========================================== */
+
+.envelope-container.opened
+.envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+.envelope-container.opened
+.envelope-letter {
+
+    transform:
+        translateY(-100px);
+
+}
+
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+.open-letter-button {
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: #ff91bd;
+
+    color: white;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.open-letter-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(255, 105, 180, 0.25);
+
+}
+
+
+.envelope-container.opened
+.open-letter-button {
+
+    display: none;
+
+}
+
+.gift-box.locked {
+
+    opacity: 0.35;
+
+    filter: grayscale(0.5);
+
+    cursor: not-allowed;
+
+    transform: scale(0.9);
+
+}
+
+
+.gift-box.locked:hover {
+
+    transform: scale(0.9);
+
+}

@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🎂 Cumpleaños 🎈</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- ==========================================
+         SECCIÓN DE BIENVENIDA
+    =========================================== -->
+
+    <header class="welcome">
+
+        <!-- Banner Sanrio -->
+
+        <div class="banner-container">
+
+            <img
+                src="img/sanrio-banner.png"
+                alt="Sanrio"
+                class="sanrio-banner"
+            >
+
+        </div>
+
+
+        <div class="welcome-content">
+
+            <div class="welcome-decoration">
+                ✨ 🎀 ✨
+            </div>
+
+
+            <h1>
+                ¡Bienvenidos a mi cumpleaños!
+            </h1>
+
+
+            <p class="welcome-message">
+
+                💕 Gracias por acompañarme en este
+                día tan especial. 💕
+
+                <br><br>
+
+                Me hace muy feliz poder compartir
+                este momento contigo.
+
+                <br>
+
+                Espero que disfrutes mucho de esta
+                celebración llena de amor,
+                diversión y mucha ternura. 🌸
+
+            </p>
+
+
+            <div class="welcome-hearts">
+                ♡ 💗 ♡ 💗 ♡
+            </div>
+
+            <button
+                type="button"
+                class="retry-button"
+                onclick="reiniciarQuiz()"
+            >
+                🎀 Volver a intentarlo
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==========================================
+         QUIZ DESPLEGABLE
+    =========================================== -->
+
+    <section class="quiz-section">
+
+
+        <button
+            class="quiz-toggle"
+            id="quizToggle"
+            type="button"
+        >
+
+            <span class="quiz-toggle-icon">
+                💖
+            </span>
+
+            <span class="quiz-toggle-text">
+
+                <strong>
+                    ¿Qué personaje de Sanrio eres?
+                </strong>
+
+                <small>
+                    ¡Descúbrelo con este divertido quiz!
+                </small>
+
+            </span>
+
+            <span
+                class="quiz-arrow"
+                id="quizArrow"
+            >
+                ▼
+            </span>
+
+        </button>
+
+
+
+        <!-- CONTENIDO COLLAPSIBLE -->
+
+        <div
+            class="quiz-content"
+            id="quizContent"
+        >
+
+
+            <div class="quiz-header">
+
+                <div class="quiz-sparkles">
+                    ✨ 🌸 ✨
+                </div>
+
+                <h2>
+                    ¿Qué personaje de Sanrio eres?
+                </h2>
+
+                <p>
+
+                    Responde las siguientes preguntas
+                    y descubre qué personaje tiene una
+                    personalidad parecida a la tuya. 💕
+
+                </p>
+
+            </div>
+
+
+
+            <form id="quizForm">
+
+
+                <!-- ==================================
+                     PREGUNTA 1
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        1. ¿Qué harías en una tarde libre? 🌷
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="kitty">
+                        <span class="heart">♥</span>
+                        Salir con mis amigos
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Preparar algo delicioso
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="kuromi">
+                        <span class="heart">♥</span>
+                        Buscar una aventura
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Relajarme y descansar
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="piano">
+                        <span class="heart">♥</span>
+                        Leer o escuchar música
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="pochacco">
+                        <span class="heart">♥</span>
+                        Practicar algún deporte
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="chococat">
+                        <span class="heart">♥</span>
+                        Aprender algo interesante
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q1" value="mymelody">
+                        <span class="heart">♥</span>
+                        Hacer algo bonito y creativo
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 2
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        2. ¿Cómo te describirían tus amigos? 💕
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="mymelody">
+                        <span class="heart">♥</span>
+                        Dulce y cariñoso
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="kuromi">
+                        <span class="heart">♥</span>
+                        Divertido y con mucha personalidad
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="kitty">
+                        <span class="heart">♥</span>
+                        Amable y amigable
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="chococat">
+                        <span class="heart">♥</span>
+                        Curioso e inteligente
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="piano">
+                        <span class="heart">♥</span>
+                        Tierno y sensible
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="pochacco">
+                        <span class="heart">♥</span>
+                        Alegre y energético
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Relajado y divertido
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q2" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Tranquilo y soñador
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 3
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        3. Elige un lugar para pasar el día 🌈
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Flotando entre las nubes
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="pochacco">
+                        <span class="heart">♥</span>
+                        Un parque para hacer deporte
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="mymelody">
+                        <span class="heart">♥</span>
+                        Un jardín lleno de flores
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="kuromi">
+                        <span class="heart">♥</span>
+                        Un parque de diversiones
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="kitty">
+                        <span class="heart">♥</span>
+                        Una ciudad bonita
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="piano">
+                        <span class="heart">♥</span>
+                        Un rincón tranquilo y acogedor
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="chococat">
+                        <span class="heart">♥</span>
+                        Una biblioteca o museo
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q3" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Una cafetería con muchos postres
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 4
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        4. ¿Cuál elegirías como tu postre perfecto? 🍰
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Un enorme pudding
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="kitty">
+                        <span class="heart">♥</span>
+                        Un cupcake
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="mymelody">
+                        <span class="heart">♥</span>
+                        Un pastel de fresas
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Un rollito de canela
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="kuromi">
+                        <span class="heart">♥</span>
+                        Galletas de chocolate
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="piano">
+                        <span class="heart">♥</span>
+                        Macarons
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="pochacco">
+                        <span class="heart">♥</span>
+                        Donas
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q4" value="chococat">
+                        <span class="heart">♥</span>
+                        Brownie de chocolate
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 5
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        5. Si pudieras tener un superpoder, ¿cuál elegirías? ✨
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Volar por el cielo
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="kitty">
+                        <span class="heart">♥</span>
+                        Hacer felices a los demás
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="chococat">
+                        <span class="heart">♥</span>
+                        Tener una memoria increíble
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="kuromi">
+                        <span class="heart">♥</span>
+                        Ser súper poderosa
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="mymelody">
+                        <span class="heart">♥</span>
+                        Crear cosas mágicas
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="pochacco">
+                        <span class="heart">♥</span>
+                        Tener energía infinita
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="piano">
+                        <span class="heart">♥</span>
+                        Poder transmitir tranquilidad
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q5" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Crear comida deliciosa
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 6
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        6. ¿Qué actividad te gustaría hacer con tus amigos? 🎀
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="kitty">
+                        <span class="heart">♥</span>
+                        Organizar una fiesta
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="piano">
+                        <span class="heart">♥</span>
+                        Tener una tarde tranquila
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="pochacco">
+                        <span class="heart">♥</span>
+                        Jugar algún deporte
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="mymelody">
+                        <span class="heart">♥</span>
+                        Hacer manualidades
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="kuromi">
+                        <span class="heart">♥</span>
+                        Ir a un concierto
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Ir a comer algo rico
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="chococat">
+                        <span class="heart">♥</span>
+                        Jugar videojuegos
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q6" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Ver películas juntos
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 7
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        7. ¿Qué tipo de música representa mejor tu personalidad? 🎵
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="mymelody">
+                        <span class="heart">♥</span>
+                        Música dulce y tranquila
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="kuromi">
+                        <span class="heart">♥</span>
+                        Rock o música intensa
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Música relajante
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="pochacco">
+                        <span class="heart">♥</span>
+                        Música alegre y energética
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="kitty">
+                        <span class="heart">♥</span>
+                        Pop divertido
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="piano">
+                        <span class="heart">♥</span>
+                        Música suave
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="chococat">
+                        <span class="heart">♥</span>
+                        Música electrónica
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q7" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Música alegre para bailar
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     PREGUNTA 8
+                =================================== -->
+
+                <div class="question">
+
+                    <h3>
+                        8. Para ti, un día perfecto sería... 🌸
+                    </h3>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="kitty">
+                        <span class="heart">♥</span>
+                        Compartirlo con las personas que quiero
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="mymelody">
+                        <span class="heart">♥</span>
+                        Rodearme de cosas bonitas
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="kuromi">
+                        <span class="heart">♥</span>
+                        Hacer algo emocionante
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="cinnamoroll">
+                        <span class="heart">♥</span>
+                        Relajarme y disfrutar el momento
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="piano">
+                        <span class="heart">♥</span>
+                        Estar en un lugar tranquilo
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="pompompurin">
+                        <span class="heart">♥</span>
+                        Comer algo delicioso
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="pochacco">
+                        <span class="heart">♥</span>
+                        Salir y hacer muchas actividades
+                    </label>
+
+
+                    <label class="heart-option">
+                        <input type="radio" name="q8" value="chococat">
+                        <span class="heart">♥</span>
+                        Descubrir algo nuevo
+                    </label>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     BOTÓN
+                =================================== -->
+
+                <div class="quiz-navigation">
+
+                <button
+                    type="button"
+                    id="prevQuestion"
+                    class="nav-button"
+                >
+                    ← Anterior
+                </button>
+
+                <span id="questionCounter">
+                    1 de 8
+                </span>
+
+                <button
+                    type="button"
+                    id="nextQuestion"
+                    class="nav-button"
+                >
+                    Siguiente →
+                </button>
+
+                </div>
+
+
+                <div class="progress-container">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="mostrarResultado()"
+                    class="quiz-button"
+                    id="resultButton"
+                >
+                    ✨ Descubrir mi personaje ✨
+                </button>
+
+
+            </form>
+
+
+            <!-- ==================================
+                 RESULTADO
+            =================================== -->
+
+            <div id="resultado"></div>
+
+
+        </div>
+
+    </section>
+
+    <section class="gifts-section">
+
+        <div class="section-title">
+
+            <span>✨</span>
+
+            <h2>🎁 Un regalito para ti 🎁</h2>
+
+            <span>✨</span>
+
+        </div>
+
+        <p class="section-description">
+            Elige una cajita y descubre tu sorpresa...
+            💕
+        </p>
+
+
+        <div class="gift-container">
+
+
+            <!-- REGALO 1 -->
+
+            <div
+                class="gift-box gift-pink"
+                onclick="abrirRegalo(1)"
+            >
+
+                <div class="gift-sparkles">
+                    ✨
+                </div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-body">
+
+                    <span>🎁</span>
+
+                </div>
+
+                <div class="gift-ribbon"></div>
+
+            </div>
+
+
+
+            <!-- REGALO 2 -->
+
+            <div
+                class="gift-box gift-purple"
+                onclick="abrirRegalo(2)"
+            >
+
+                <div class="gift-sparkles">
+                    ✨
+                </div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-body">
+
+                    <span>🎁</span>
+
+                </div>
+
+                <div class="gift-ribbon"></div>
+
+            </div>
+
+
+
+            <!-- REGALO 3 -->
+
+            <div
+                class="gift-box gift-blue"
+                onclick="abrirRegalo(3)"
+            >
+
+                <div class="gift-sparkles">
+                    ✨
+                </div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-body">
+
+                    <span>🎁</span>
+
+                </div>
+
+                <div class="gift-ribbon"></div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="gift-message"
+            class="gift-message"
+        ></div>
+
+    </section>
+
+    <section class="letter-section">
+
+        <div class="section-title">
+
+            <span>🌸</span>
+
+            <h2>💌 Hay una cartita para ti</h2>
+
+            <span>🌸</span>
+
+        </div>
+
+        <p class="section-description">
+            Escribe tu nombre y descubre tu mensaje especial. 💕
+        </p>
+
+
+        <div class="letter-form">
+
+            <input
+                type="text"
+                id="guestName"
+                placeholder="Escribe tu nombre..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                onclick="prepararCarta()"
+            >
+                💌 Preparar mi carta
+            </button>
+
+        </div>
+
+
+        <!-- SOBRE -->
+
+        <div
+            id="envelopeContainer"
+            class="envelope-container"
+        >
+
+            <div class="envelope">
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-letter">
+
+                    <span id="envelopeName">
+                        Para ti 💕
+                    </span>
+
+                </div>
+
+                <div class="envelope-front"></div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="openLetterButton"
+                class="open-letter-button"
+                onclick="abrirCarta()"
+            >
+                ✨ Abrir mi cartita ✨
+            </button>
+
+        </div>
+
+
+        <!-- MENSAJE -->
+
+        <div
+            id="letterResult"
+            class="letter-result"
+        ></div>
+
+    </section>
+
+
+</div>
+
+
+<!-- ==========================================
+     CAPA DE EFECTOS
+=========================================== -->
+
+<div id="magic-effects"></div>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+<footer class="birthday-footer">
+
+    <div class="footer-sparkles">
+        ✨ 🎀 ✨
+    </div>
+
+    <h2>
+        🎂 ¡Gracias por celebrar conmigo! 🎂
+    </h2>
+
+    <p>
+        Espero que hayas disfrutado esta pequeña
+        aventura Sanrio tanto como yo. 💕
+    </p>
+
+    <div class="footer-characters">
+        🎀 🌸 💜 ☁️ 🌷 🍮 🐶 🐱
+    </div>
+
+    <p class="footer-date">
+        Con mucho cariño 💗
+    </p>
+
+</footer>
+
+</html>
