@@ -39,6 +39,14 @@ button,
 
 }
 
+.quiz-section,
+.letter-section,
+.gifts-section {
+
+    display: none;
+
+}
+
 .character-name {
 
     font-family:

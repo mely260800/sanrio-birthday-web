@@ -1,3 +1,61 @@
+function entrarAFiesta() {
+
+    document.querySelector(
+        ".quiz-section"
+    ).style.display = "block";
+
+    document.querySelector(
+        ".letter-section"
+    ).style.display = "block";
+
+    document.querySelector(
+        ".gifts-section"
+    ).style.display = "block";
+
+    const select =
+        document.getElementById(
+            "guestSelect"
+    );
+
+    const nombre =
+        select.value;
+
+    if (!nombre) {
+
+        alert(
+            "🌸 Elige tu nombre primero 💕"
+        );
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        "sanrioGuest",
+        nombre
+    );
+
+    const quizSection =
+        document.querySelector(
+            ".quiz-section"
+        );
+
+    quizSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+const welcomeTitle =
+    document.querySelector(
+        ".welcome h1"
+    );
+
+welcomeTitle.innerHTML = `
+    💖 ¡Hola ${capitalizar(nombre)}! 💖
+`;
+
 /* ==========================================
    QUIZ COLLAPSIBLE
 ========================================== */
@@ -174,9 +232,28 @@ prevButton.addEventListener(
 
 function guardarResultadoQuiz(personaje) {
 
-    const nombre =
-        localStorage.getItem("sanrioGuest");
+    /*
+     * Guardar siempre el último
+     * personaje obtenido.
+     */
 
+    localStorage.setItem(
+        "ultimoPersonaje",
+        personaje
+    );
+
+
+    const nombre =
+        localStorage.getItem(
+            "sanrioGuest"
+        );
+
+
+    /*
+     * Si todavía no sabemos quién es,
+     * solo guardamos el personaje
+     * temporalmente.
+     */
 
     if (!nombre) {
 
@@ -258,10 +335,27 @@ function mostrarResultado() {
        BUSCAR GANADOR
     ====================================== */
 
-    let personaje = Object.keys(puntajes).reduce(
-        (a, b) =>
-            puntajes[a] > puntajes[b] ? a : b
-    );
+    const maximo =
+        Math.max(
+            ...Object.values(puntajes)
+        );
+
+
+    const empatados =
+        Object.keys(puntajes)
+            .filter(
+                personaje =>
+                    puntajes[personaje] === maximo
+            );
+
+
+    const personaje =
+        empatados[
+            Math.floor(
+                Math.random() *
+                empatados.length
+            )
+        ];
 
 
     /* ======================================
@@ -576,7 +670,7 @@ const invitados = [
     "diego",
     "erick",
     "jairo",
-    "maría",
+    "maria",
     "natalia",
     "ximena",
     "alessandra"
@@ -937,8 +1031,8 @@ const guestMessages = {
     "jairo":
         "Jairo, gracias por compartir conmigo esta celebración. Espero que te lleves muchos buenos recuerdos de esta noche. 💕",
 
-    "maría":
-        "María, gracias por estar aquí y formar parte de este día tan bonito. ¡Que la pasemos increíble! 🌸",
+    "maria":
+        "maria, gracias por estar aquí y formar parte de este día tan bonito. ¡Que la pasemos increíble! 🌸",
 
     "natalia":
         "Natalia, gracias por acompañarme. Que esta noche esté llena de canciones, risas y muchísima magia Sanrio. 🎀",
@@ -1122,6 +1216,30 @@ function prepararCarta() {
         "sanrioGuest",
         nombre
     );
+
+    const ultimoPersonaje =
+    localStorage.getItem(
+        "ultimoPersonaje"
+    );
+
+if (ultimoPersonaje) {
+
+    let resultados =
+        JSON.parse(
+            localStorage.getItem(
+                "sanrioQuizResults"
+            )
+        ) || {};
+
+    resultados[nombre] =
+        ultimoPersonaje;
+
+    localStorage.setItem(
+        "sanrioQuizResults",
+        JSON.stringify(resultados)
+    );
+
+}
 
 
     envelopeName.textContent =
