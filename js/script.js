@@ -999,34 +999,35 @@ function obtenerNombreRegalo(numero) {
    CARTA PERSONALIZADA
 ========================================== */
 
+
 const guestMessages = {
 
     "denisse":
-        "Denisse, gracias por acompañarme en este día tan especial. Divirtamonos al máximo. Espero que hoy cantes, rías y disfrutes muchísimo. 🎤✨",
+        "Denisse, gracias por acompañarme en este día tan especial. 💗 Espero que cantemos, riamos y disfrutemos muchísimo juntas. ¡Divirtámonos al máximo y hagamos de esta noche un recuerdo inolvidable! 🎤✨",
 
     "luis":
-        "Luis, gracias por ser parte de esta celebración. ¡Ahora sí, a demostrar ese talento en el karaoke! 🎤✨",
+        "Luis, gracias por ser parte de esta celebración. 🙌🏻 Espero que te diviertas muchísimo y, ahora sí, ¡a demostrar ese talento en el karaoke! Que no falte la música, las risas y, sobre todo, las buenas canciones. 🎤✨",
 
     "diego":
-        "Diego, qué alegría tenerte aquí. Espero que esta noche esté llena de canciones, risas y momentos inolvidables. 💙",
+        "Diego, hoy toca darlo todo con las canciones que más te gusten. 🎶 Espero que esta noche esté llena de canciones, risas y momentos que se queden como buenos recuerdos. ¡Disfruta muchísimo y a cantar se ha dicho! 🥳✨",
 
     "erick":
-        "Erick, gracias por acompañarme en este día. ¡Que empiece la música y que nadie se quede sin cantar! 🎶",
+        "Erick, alias Chicharrón, gracias por acompañarme en este día a pesar de tus repetidas quejas. 😂💫 Ahora ya no hay vuelta atrás: ¡que empiece la música y que nadie se quede sin cantar! Espero que te diviertas muchísimo y que, por una noche, no tengas nada de qué quejarte. 🎶✨",
 
     "jairo":
-        "Jairo, gracias por compartir conmigo esta celebración. Espero que te lleves muchos buenos recuerdos de esta noche. 💕",
+        "Jairo, no puedo creer que por fin llegó el día de la celebración. 🥹 Me acuerdo de cuando te conté mi plan y me animaste a hacerlo realidad. Gracias por escucharme, apoyarme y compartir conmigo este día tan especial. Espero que esta noche esté llena de buenos momentos y que te lleves muchos recuerdos bonitos. 🎤✨",
 
     "maria":
-        "maria, gracias por estar aquí y formar parte de este día tan bonito. ¡Que la pasemos increíble! 🌸",
+        "María, gracias por estar aquí y formar parte de este día tan bonito. 🌸 Después de lo de Mamma Mia, me quedé con ganas de seguir bailando y cantando contigo. 😂💗 ¡Así que hoy toca continuar! Espero que la pasemos increíble, que cantemos hasta quedarnos sin voz y que disfrutes muchísimo. Relájate y diviértete, te lo mereces. 🌸✨",
 
     "natalia":
-        "Natalia, gracias por acompañarme. Que esta noche esté llena de canciones, risas y muchísima magia Sanrio. 🎀",
+        "Natalia, qué bonito que por fin llegó el día de la celebración. 🎀 Gracias por ser parte de esto y por contagiar siempre esa bonita energía que hace que todo se sienta aún más especial. Espero que esta noche esté llena de canciones, risas, buenos momentos y muchísima magia Sanrio. ¡Disfrutémoslo al máximo, come on! 🎀✨",
 
     "ximena":
-        "Ximena, qué bonito poder celebrar este momento contigo. Gracias por venir y hacer esta noche todavía más especial. 💗",
+        "Ximena, me encanta que hayas venido. 🌼 Espero que disfrutes este día tanto como yo disfruto compartir momentos contigo. Así que alócate con confianza, canta, ríe, baila y hagamos juntas muchos recuerdos bonitos. ¡Hoy se viene a disfrutar! 💗✨",
 
     "alessandra":
-        "Alessandra, gracias por estar aquí. Espero que disfrutes muchísimo, cantes a todo pulmón y guardes un bonito recuerdo de esta noche. ✨"
+        "Alessandra, gracias por estar aquí, mi querida socia de la Virgo Season. 🌷✨ Ya pronto celebraremos tu cumple, ¡qué emoción! Espero que disfrutes muchísimo esta noche, cantes a todo pulmón y te lleves un recuerdo bonito de esta celebración. Y obviamente, esto es solo el comienzo de nuestras celebraciones. 💗✨"
 
 };
 
